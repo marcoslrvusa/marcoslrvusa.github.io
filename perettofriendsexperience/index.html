@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMIGUROS — Experiência de Conexão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f9f5d7;
+  --bg-card: #fbf1c7;
+  --bg-card-alt: #f2e5bc;
+  --bg-dark: #ebdbb2;
+  --fg: #3c3836;
+  --fg-muted: #7c6f64;
+  --red: #cc241d;
+  --red-dark: #9d0006;
+  --orange: #d65d0e;
+  --yellow: #d79921;
+  --green: #98971a;
+  --green-dark: #79740e;
+  --aqua: #689d6a;
+  --purple: #b16286;
+  --border: #d5c4a1;
+  --border-light: #ebdbb2;
+  --white: #fdf4d9;
+  --shadow: rgba(60, 56, 54, 0.08);
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+
+.back-link {
+  display: block;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 16px 24px 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+.back-link a {
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+.back-link a:hover { color: var(--red); }
+
+/* Header */
+.header {
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--red);
+  padding: 24px 0;
+  text-align: center;
+}
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.header h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: 0.08em;
+}
+.header p {
+  font-size: 1.1rem;
+  color: var(--fg-muted);
+  margin-top: 4px;
+}
+
+/* Container */
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Sections */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.section h2 {
+  font-size: 1.6rem;
+  color: var(--red);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+}
+.section h3 {
+  font-size: 1.2rem;
+  color: var(--orange);
+  margin: 20px 0 8px;
+}
+.section p, .section li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+.tag-orange { background: var(--orange); }
+.tag-green { background: var(--green); }
+.tag-purple { background: var(--purple); }
+.tag-aqua { background: var(--aqua); }
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-card-alt);
+  border-radius: 8px;
+  border-left: 4px solid var(--red);
+}
+.step .num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  min-width: 32px;
+  text-align: center;
+}
+.step .content { flex: 1; }
+.step .content strong { color: var(--fg); }
+.step .content .time {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+/* Cards grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.card-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-left: 4px solid var(--red);
+}
+.card-item .card-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.card-item .card-layer {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px 8px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+.card-layer.l1 { background: var(--bg-dark); color: var(--fg-muted); }
+.card-layer.l2 { background: #fbf1c7; color: var(--orange); border: 1px solid var(--border-light); }
+.card-layer.l3 { background: #f2e5bc; color: var(--red-dark); border: 1px solid var(--border); }
+
+/* Rules */
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+.rule-card {
+  background: var(--bg-card-alt);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+}
+.rule-card .icon { font-size: 2rem; margin-bottom: 8px; }
+.rule-card h4 { font-size: 1rem; margin-bottom: 4px; color: var(--red); }
+.rule-card p { font-size: 0.9rem; color: var(--fg-muted); margin: 0; }
+
+/* Score table */
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+.score-table th {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--red);
+  color: var(--white);
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.score-table th:first-child { border-radius: 6px 0 0 0; }
+.score-table th:last-child { border-radius: 0 6px 0 0; }
+.score-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+.score-table tr:nth-child(even) td { background: var(--bg-card-alt); }
+
+/* Print */
+@media print {
+  body { background: white; font-size: 12px; }
+  .header { padding: 12px 0; }
+  .header h1 { font-size: 2rem; }
+  .container { padding: 16px; }
+  .section { padding: 16px; box-shadow: none; break-inside: avoid; }
+  .cards-grid { grid-template-columns: repeat(3, 1fr); }
+  .card-item { font-size: 0.8rem; padding: 8px; }
+  .rules-grid { grid-template-columns: 1fr 1fr; }
+  .step { padding: 10px; }
+  @page { margin: 0.8cm; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .rules-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .header h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="back-link"><a href="/">← Voltar ao hub</a></div>
+
+<header class="header">
+  <div class="header-inner">
+    <h1>AMIGUROS</h1>
+    <p>Experiência de Conexão — People &amp; Performance</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="section">
+    <h2>🎯 O Desafio</h2>
+    <p>Dois times, duas experiências. Enquanto um grupo leva a Colômbia pra sala, a gente leva <strong>conexão real</strong> entre as pessoas.</p>
+    <p style="margin-top:8px;">Sem decoração, sem comida temática, sem frescura. Só um jogo bem desenhado que faz as pessoas se conhecerem de verdade.</p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>📋 Visão Geral</h2>
+    <p style="margin-bottom:16px;">
+      <span class="tag">14 participantes</span>
+      <span class="tag tag-orange" style="margin-left:6px;">2 grupos híbridos</span>
+      <span class="tag tag-green" style="margin-left:6px;">~1h30 total</span>
+    </p>
+    <p>Os grupos são <strong>híbridos</strong> — cada um tem pessoas dos dois times (nosso time + time deles).<br>Assim todo mundo se mistura de verdade desde o começo.</p>
+  </div>
+
+  <!-- FLUXO -->
+  <div class="section">
+    <h2>⏳ Fluxo da Experiência</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="num">1</div>
+        <div class="content">
+          <div class="time">⏱ 5 min</div>
+          <strong>Abertura</strong> — Explicar as regras, dividir os 2 grupos híbridos
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div class="content">
+          <div class="time">⏱ 25 min</div>
+          <strong>Baralho de Revelações</strong> — Cada grupo em roda. Cada pessoa tira uma carta, responde, passa pro próximo. As cartas vão do leve ao profundo.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div class="content">
+          <div class="time">⏱ 2 min</div>
+          <strong>Cada um escolhe 1 curiosidade</strong> — De tudo que compartilharam, cada pessoa escolhe UMA curiosidade que vai pro jogo. Pode ser a mais engraçada, a mais absurda, a mais íntima. Só não vale a mesma do colega de grupo.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div class="content">
+          <div class="time">⏱ ~30 min</div>
+          <strong>Imitação + Adivinhação 🎭</strong> — Aqui é onde o jogo acontece de verdade.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">5</div>
+        <div class="content">
+          <div class="time">⏱ 10 min</div>
+          <strong>Carta pro Futuro 💌</strong> — Cada um escreve uma carta pra si mesmo daqui 1 ano. Alguém guarda e devolve em 2027.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">6</div>
+        <div class="content">
+          <div class="time">⏱ 10 min</div>
+          <strong>Encerramento</strong> — Contagem de pontos, prêmios, foto
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REGRAS DO JOGO -->
+  <div class="section">
+    <h2>🎭 Regras do Jogo — Imitação + Adivinhação</h2>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="icon">🙋</div>
+        <h4>Quem faz a imitação</h4>
+        <p>A própria pessoa sobe e faz mímica da sua curiosidade em <strong>30 segundos</strong>. Sem palavras, sem sons — só corpo.</p>
+      </div>
+      <div class="rule-card">
+        <div class="icon">❌</div>
+        <h4>Quem NÃO pode jogar</h4>
+        <p>O grupo pequeno que ouviu a curiosidade <strong>não pode chutar</strong> — eles já sabem a resposta.</p>
+      </div>
+      <div class="rule-card">
+        <div class="icon">🎯</div>
+        <h4>Quem joga</h4>
+        <p>Só quem <strong>não estava no grupo</strong> da pessoa. Três tentativas pra acertar o que é.</p>
+      </div>
+      <div class="rule-card">
+        <div class="icon">🏆</div>
+        <h4>Pontuação</h4>
+        <p><strong>3 pontos</strong> — acertou exatamente<br><strong>1 ponto</strong> — chegou perto<br><strong>0 pontos</strong> — errou tudo</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Pontuação</h3>
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Rodada</th>
+          <th>Quem imitou</th>
+          <th>Grupo que jogou</th>
+          <th>Acertou?</th>
+          <th>Pontos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="5" style="text-align:center;color:var(--fg-muted);font-style:italic;">Preencher durante o jogo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PREMIOS -->
+  <div class="section">
+    <h2>🎁 Prêmios</h2>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="icon">👥</div>
+        <h4>Coletivo</h4>
+        <p style="font-style:italic;color:var(--fg-muted);"><strong>A definir</strong></p>
+      </div>
+      <div class="rule-card">
+        <div class="icon">🙋</div>
+        <h4>Individual</h4>
+        <p style="font-style:italic;color:var(--fg-muted);"><strong>A definir</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARALHO -->
+  <div class="section">
+    <h2>🃏 Baralho de Revelações — 40 Cartas</h2>
+    <p style="color:var(--fg-muted);margin-bottom:16px;">Imprimir, recortar e colocar num pote. Cada grupo usa seu baralho.</p>
+
+    <h3><span class="tag" style="background:var(--fg-muted);">Camada 1</span> — Leve / Quebra-gelo</h3>
+    <div class="cards-grid">
+      <div class="card-item"><div class="card-num">Carta 1</div><span class="card-layer l1">Leve</span> Uma mania sua que todo mundo acha estranha</div>
+      <div class="card-item"><div class="card-num">Carta 2</div><span class="card-layer l1">Leve</span> O primeiro emprego que você teve</div>
+      <div class="card-item"><div class="card-num">Carta 3</div><span class="card-layer l1">Leve</span> Uma habilidade inútil que você tem orgulho</div>
+      <div class="card-item"><div class="card-num">Carta 4</div><span class="card-layer l1">Leve</span> O que você ia ser quando crescesse</div>
+      <div class="card-item"><div class="card-num">Carta 5</div><span class="card-layer l1">Leve</span> Um talento escondido que ninguém aqui sabe</div>
+      <div class="card-item"><div class="card-num">Carta 6</div><span class="card-layer l1">Leve</span> A comida mais estranha que você já comeu</div>
+      <div class="card-item"><div class="card-num">Carta 7</div><span class="card-layer l1">Leve</span> Um apelido que você já teve</div>
+      <div class="card-item"><div class="card-num">Carta 8</div><span class="card-layer l1">Leve</span> Seu maior vício (café, série, doce, o que for)</div>
+      <div class="card-item"><div class="card-num">Carta 9</div><span class="card-layer l1">Leve</span> Um medo bobo que você tem</div>
+      <div class="card-item"><div class="card-num">Carta 10</div><span class="card-layer l1">Leve</span> Uma vez que você riu no momento errado</div>
+      <div class="card-item"><div class="card-num">Carta 11</div><span class="card-layer l1">Leve</span> O maior "perrengue" que já passou numa viagem</div>
+      <div class="card-item"><div class="card-num">Carta 12</div><span class="card-layer l1">Leve</span> Uma tradição familiar sua</div>
+    </div>
+
+    <h3 style="margin-top:20px;"><span class="tag tag-orange">Camada 2</span> — Conexão Pessoal</h3>
+    <div class="cards-grid">
+      <div class="card-item"><div class="card-num">Carta 13</div><span class="card-layer l2">Conexão</span> A pessoa que mais te influenciou na vida</div>
+      <div class="card-item"><div class="card-num">Carta 14</div><span class="card-layer l2">Conexão</span> Um fracasso que ninguém aqui sabe</div>
+      <div class="card-item"><div class="card-num">Carta 15</div><span class="card-layer l2">Conexão</span> A maior lição que um erro te ensinou</div>
+      <div class="card-item"><div class="card-num">Carta 16</div><span class="card-layer l2">Conexão</span> Um momento que mudou completamente sua visão de mundo</div>
+      <div class="card-item"><div class="card-num">Carta 17</div><span class="card-layer l2">Conexão</span> Uma vez que você pediu desculpas e foi difícil</div>
+      <div class="card-item"><div class="card-num">Carta 18</div><span class="card-layer l2">Conexão</span> O maior risco que você já correu</div>
+      <div class="card-item"><div class="card-num">Carta 19</div><span class="card-layer l2">Conexão</span> Uma coisa que você gostaria de ter dito pra alguém</div>
+      <div class="card-item"><div class="card-num">Carta 20</div><span class="card-layer l2">Conexão</span> O conselho que você mais precisava ouvir (e não ouviu)</div>
+      <div class="card-item"><div class="card-num">Carta 21</div><span class="card-layer l2">Conexão</span> O maior medo que você já superou</div>
+      <div class="card-item"><div class="card-num">Carta 22</div><span class="card-layer l2">Conexão</span> Um hábito seu que você gostaria de largar</div>
+      <div class="card-item"><div class="card-num">Carta 23</div><span class="card-layer l2">Conexão</span> Uma coisa que você faz e tem vergonha de admitir</div>
+      <div class="card-item"><div class="card-num">Carta 24</div><span class="card-layer l2">Conexão</span> A maior saudade que você carrega</div>
+      <div class="card-item"><div class="card-num">Carta 25</div><span class="card-layer l2">Conexão</span> Uma conversa que mudou sua vida</div>
+      <div class="card-item"><div class="card-num">Carta 26</div><span class="card-layer l2">Conexão</span> Uma pessoa que você admira e nunca contou pra ela</div>
+      <div class="card-item"><div class="card-num">Carta 27</div><span class="card-layer l2">Conexão</span> O momento em que você se sentiu mais orgulhoso de si mesmo</div>
+    </div>
+
+    <h3 style="margin-top:20px;"><span class="tag tag-purple">Camada 3</span> — Profunda / Reflexiva</h3>
+    <div class="cards-grid">
+      <div class="card-item"><div class="card-num">Carta 28</div><span class="card-layer l3">Profunda</span> Se pudesse mandar uma mensagem pro seu eu de 10 anos atrás, o que diria?</div>
+      <div class="card-item"><div class="card-num">Carta 29</div><span class="card-layer l3">Profunda</span> A maior mentira que você já contou</div>
+      <div class="card-item"><div class="card-num">Carta 30</div><span class="card-layer l3">Profunda</span> Uma vez que você foi injusto com alguém e se arrepende</div>
+      <div class="card-item"><div class="card-num">Carta 31</div><span class="card-layer l3">Profunda</span> O que ninguém entende sobre você</div>
+      <div class="card-item"><div class="card-num">Carta 32</div><span class="card-layer l3">Profunda</span> Se você pudesse apagar uma memória, qual seria?</div>
+      <div class="card-item"><div class="card-num">Carta 33</div><span class="card-layer l3">Profunda</span> O que você quer ser lembrado por?</div>
+      <div class="card-item"><div class="card-num">Carta 34</div><span class="card-layer l3">Profunda</span> Uma coisa que você perdoou e foi difícil</div>
+      <div class="card-item"><div class="card-num">Carta 35</div><span class="card-layer l3">Profunda</span> O que te faz sentir verdadeiramente vivo?</div>
+      <div class="card-item"><div class="card-num">Carta 36</div><span class="card-layer l3">Profunda</span> A maior renúncia que você já fez</div>
+      <div class="card-item"><div class="card-num">Carta 37</div><span class="card-layer l3">Profunda</span> Uma coisa que ninguém jamais adivinharia sobre você</div>
+      <div class="card-item"><div class="card-num">Carta 38</div><span class="card-layer l3">Profunda</span> O que você deseja ter coragem de fazer</div>
+      <div class="card-item"><div class="card-num">Carta 39</div><span class="card-layer l3">Profunda</span> O momento em que você se sentiu mais sozinho</div>
+      <div class="card-item"><div class="card-num">Carta 40</div><span class="card-layer l3">Profunda</span> Se você tivesse 1 ano de vida, o que faria diferente?</div>
+    </div>
+  </div>
+
+  <!-- CARTA PRO FUTURO -->
+  <div class="section">
+    <h2>💌 Carta pro Futuro</h2>
+    <p>Depois do jogo, cada um escreve uma carta pra si mesmo daqui 1 ano. O que deseja, o que espera, o que quer lembrar.</p>
+    <ul style="margin:12px 0 0 20px;">
+      <li>Papel e envelope fornecidos</li>
+      <li>Lacra e entrega pra uma pessoa de confiança</li>
+      <li>Ela devolve daqui 1 ano 🎉</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
