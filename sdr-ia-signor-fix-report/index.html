@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signor Concretos · A obra por trás da conversa</title>
+<title>Signor Concretos · A obra por trás da conversa · V4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -89,6 +89,34 @@ section{padding:100px 8vw}
 .sec-head h2 .hl{color:var(--red)}
 .sec-head .sub{font-size:17px;color:var(--ink-soft);max-width:680px;font-weight:300}
 .sec-head .sub b{color:var(--ink);font-weight:600}
+
+/* ---------- porquê: lab / jornada ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.why-card{background:var(--paper);border:2px solid var(--ink);padding:30px 26px;position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.why-card:hover{transform:translateY(-5px);box-shadow:8px 8px 0 rgba(23,22,20,.14)}
+.why-card .n{
+  position:absolute;top:16px;right:20px;font-family:var(--display);font-weight:900;font-size:64px;line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--line-strong);
+}
+.why-card .ic{font-family:var(--display);font-weight:900;font-size:34px;color:var(--orange);display:block;margin-bottom:10px}
+.why-card h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.03em;margin-bottom:10px}
+.why-card h3 small{display:block;font-weight:600;font-size:14px;color:var(--orange-dark);letter-spacing:.14em;margin-bottom:2px}
+.why-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:12px}
+.why-card .analogy{
+  background:#FFF4E6;border-left:4px solid var(--orange);padding:12px 14px;font-size:13.5px;color:#6B4A1F;
+}
+.why-card .analogy b{font-weight:700}
+.why-card .tag-line{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+.why-concl{
+  margin-top:22px;background:var(--graphite);color:#F4F1EA;padding:24px 28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+}
+.why-concl .lab{
+  font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:22px;letter-spacing:.05em;color:var(--orange);
+  display:flex;align-items:center;gap:12px;white-space:nowrap;
+}
+.why-concl .lab::before{content:"⬢";color:var(--red)}
+.why-concl p{font-size:15px;color:#C9C2B2;font-weight:300;max-width:720px}
+.why-concl p b{color:#fff;font-weight:600}
 
 /* ---------- didatico: camadas ---------- */
 .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
@@ -211,7 +239,7 @@ footer b{color:var(--ink)}
     <span class="divider"></span>
     <span class="client">Signor Concretos · <b>SDR IA</b></span>
   </div>
-  <span class="tag">Check-in · Jul/2026 · V3</span>
+  <span class="tag">Check-in · Ago/2026 · V4</span>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -219,7 +247,7 @@ footer b{color:var(--ink)}
   <div class="hero-inner">
     <div class="kicker reveal vis">V4 Company · Engenharia de Confiabilidade · SDR IA</div>
     <h1 class="reveal vis" data-d="1">A obra por trás<br>da <span class="hl">conversa</span></h1>
-    <p class="lede reveal vis" data-d="2">A SDR IA da Signor passou por uma revisão completa de engenharia. O objetivo é simples: <b>uma conversa com a sua marca nunca mais fica sem resposta, e todo atendimento qualificado chega ao seu time.</b> Este documento explica — em linguagem de obra — o que foi construído, o que isso garante e como você acompanha.</p>
+    <p class="lede reveal vis" data-d="2">Começamos pelo que o mercado valida — <b>os benchmarks de OpenAI, Nvidia e Google</b>. Mas nenhum benchmark cobre a especificidade da sua operação, e o protocolo padrão não é seguro contra falhas silenciosas. Como pioneiros, construímos um <b>lab próprio</b> — documentação, diagnóstico e proteções que nenhum benchmark oferece. Este documento explica, em linguagem de obra, <b>por que existe engenharia por trás da conversa</b> — o que foi construído, o que isso garante e como você acompanha.</p>
     <div class="seal-row reveal vis" data-d="3">
       <div class="seal"><span class="n">1</span><span class="d">Fluxo único<br>sem duplicação</span></div>
       <div class="seal"><span class="n">0</span><span class="d">Pontos de falha<br>sem proteção</span></div>
@@ -228,10 +256,49 @@ footer b{color:var(--ink)}
   </div>
 </header>
 
+<!-- ============ PORQUÊ: O LAB ============ -->
+<section>
+  <div class="sec-head reveal">
+    <div class="sec-num">01 · O porquê</div>
+    <h2>O mercado valida. <span class="hl">Nós construímos.</span></h2>
+    <p class="sub">Quando o projeto começou, seguimos o que havia de mais validado no mercado: <b>os benchmarks de OpenAI, Nvidia e Google</b>. Referência séria, mas limitada — ela diz o que funciona <b>no geral</b>, não o que sustenta <b>a sua operação</b>. E há um perigo que o protocolo padrão não cobre. Veja a jornada:</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal" data-d="1">
+      <span class="n">01</span>
+      <span class="ic">▤</span>
+      <h3><small>O ponto de partida</small>Benchmark valida o geral</h3>
+      <p>Começamos pelo padrão do mercado: <b>OpenAI, Nvidia, Google</b>. Eles provam o que a tecnologia faz de melhor — e são a nossa base.</p>
+      <div class="analogy"><b>A norma técnica:</b> a ABNT define o padrão de toda obra. Necessária, séria — mas ela <b>não constrói a sua obra</b>. Quem constrói é o engenheiro que conhece o terreno.</div>
+      <div class="tag-line">✓ Base validada pelo mercado</div>
+    </div>
+    <div class="why-card reveal" data-d="2">
+      <span class="n">02</span>
+      <span class="ic">◌</span>
+      <h3><small>O limite</small>Nenhum cobre a sua operação</h3>
+      <p>Benchmark é feito para o caso médio. Ele <b>não conhece o WhatsApp da Signor, o áudio do pedreiro, o formato do lead, o seu setor</b>. E o protocolo padrão <b>não é seguro contra falhas silenciosas</b> — a falha que não dá erro, mas corrompe o resultado.</p>
+      <div class="analogy"><b>A infiltração:</b> não aparece no acabamento, corrói por dentro durante meses. Com SDR é igual: conversa que morre, lead que não chega — <b>sem aviso</b>.</div>
+      <div class="tag-line">✓ O que o benchmark não enxerga</div>
+    </div>
+    <div class="why-card reveal" data-d="3">
+      <span class="n">03</span>
+      <span class="ic">▣</span>
+      <h3><small>A decisão</small>Um lab próprio</h3>
+      <p>Como toda onda disruptiva, <b>fomos pioneiros</b> — não existia manual pronto. Criamos um <b>lab próprio de engenharia</b>: documentação e diagnóstico próprios daquilo que nenhum benchmark cobre. Cada problema real virou um caso documentado.</p>
+      <div class="analogy"><b>O laboratório:</b> em vez de esperar a falha acontecer, nós <b>mapeamos o que pode acontecer</b> — e protegemos antes.</div>
+      <div class="tag-line">✓ Pioneiros · diagnóstico próprio</div>
+    </div>
+  </div>
+  <div class="why-concl reveal" data-d="1">
+    <span class="lab">⬢ Repositório de problemas → Circuit Breaker</span>
+    <p>O resultado desse lab é um <b>grande repositório de problemas possíveis</b> — e um workflow de <b>circuit breaker</b> que interrompe a falha antes que ela atinja você. Em linguagem de obra: <b>o disjuntor do quadro elétrico.</b> Quando a corrente passa do limite, desarma — antes de queimar a instalação. A conversa não queima.</p>
+  </div>
+</section>
+
 <!-- ============ DIDÁTICO: CAMADAS ============ -->
 <section>
   <div class="sec-head reveal">
-    <div class="sec-num">01 · Como uma obra de qualidade</div>
+    <div class="sec-num">02 · Como uma obra de qualidade</div>
     <h2>Toda entrega sólida tem <span class="hl">três camadas</span></h2>
     <p class="sub">Vocês constroem com concreto de qualidade — e sabem que uma obra boa exige <b>fundação, estrutura e acabamento</b>. A SDR IA da Signor passou pela mesma lógica. Cada camada tem um papel, e nenhuma depende de "sorte".</p>
   </div>
@@ -266,7 +333,7 @@ footer b{color:var(--ink)}
 <!-- ============ COMO FUNCIONA ============ -->
 <section style="padding-top:0">
   <div class="sec-head reveal">
-    <div class="sec-num">02 · Didático</div>
+    <div class="sec-num">03 · Didático</div>
     <h2>Como funciona <span class="hl">hoje</span>, em 3 passos</h2>
     <p class="sub">O desenho é simples: <b>a IA conversa, a regra garante.</b> São dois times em campo — a inteligência faz o atendimento, e a engenharia garante a entrega. Entenda o fluxo:</p>
   </div>
@@ -315,7 +382,7 @@ footer b{color:var(--ink)}
 <!-- ============ GARANTIAS ============ -->
 <section class="guarantee-section">
   <div class="sec-head reveal">
-    <div class="sec-num" style="color:var(--orange)">03 · A garantia</div>
+    <div class="sec-num" style="color:var(--orange)">04 · A garantia</div>
     <h2>O que isso garante <span class="hl" style="-webkit-text-stroke:0;color:var(--orange)">para a Signor</span></h2>
     <p class="sub">Esqueça detalhe técnico por um momento. Em linguagem de resultado, o que muda no seu dia a dia está aqui — <b>e tudo isso é acompanhado de perto, toda semana.</b></p>
   </div>
@@ -350,7 +417,7 @@ footer b{color:var(--ink)}
 <!-- ============ RECONEXÃO ============ -->
 <section>
   <div class="sec-head reveal">
-    <div class="sec-num">04 · Relacionamento</div>
+    <div class="sec-num">05 · Relacionamento</div>
     <h2>Nenhum contato <span class="hl">fica para trás</span></h2>
     <p class="sub">Ao revisar a operação, mapeamos toda a base de contatos da Signor. Encontramos conversas que ficaram <b>sem continuidade</b> — atendimentos que aconteceram, mas não tiveram o retorno que mereciam. Isso não ficou como estava: <b>estamos retomando o contato, com prioridade e critério.</b></p>
   </div>
@@ -383,7 +450,7 @@ footer b{color:var(--ink)}
 <!-- ============ RITO ============ -->
 <section style="padding-top:0">
   <div class="sec-head reveal">
-    <div class="sec-num">05 · O rito</div>
+    <div class="sec-num">06 · O rito</div>
     <h2>Como você <span class="hl">acompanha</span></h2>
     <p class="sub">Segurança não é promessa de um dia — é <b>um ritual contínuo</b>. Isso é o que a Signor passa a ter de agora em diante:</p>
   </div>
@@ -426,7 +493,7 @@ footer b{color:var(--ink)}
 
 <footer>
   <span>V4 Company · Engenharia de Confiabilidade · SDR IA</span>
-  <span>Signor Concretos · Check-in · Jul/2026</span>
+  <span>Signor Concretos · Check-in · Ago/2026</span>
 </footer>
 
 <script>
